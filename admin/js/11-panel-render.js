@@ -1,9 +1,7 @@
 /* Panel y créditos — créditos de modelos y renderizado del panel de administración */
 let ENT={};
 const nmOf=n=>n.includes('/')?n.split('/')[0]:n.replace(/\.(glb|gltf|zip)$/i,'');
-function credit(ab){const x=meta(ab);if(!x.title)return;const U=s=>(s||'').match(/\((https?:[^)]+)\)/),N=s=>(s||'').replace(/\s*\(.*$/,''),a=U(x.author),l=U(x.license),s=x.source;if(s&&st.ui.creditsHtml.includes(s))return;
- const h=(s?`<a href="${esc(s)}">`:'')+'«'+esc(x.title)+'»'+(s?'</a>':'')+(x.author?' por '+(a?`<a href="${esc(a[1])}">${esc(N(x.author))}</a>`:esc(N(x.author))):'')+(x.license?' ('+(l?`<a href="${esc(l[1])}">${esc(N(x.license))}</a>`:esc(x.license))+')':'');
- st.ui.creditsHtml=(st.ui.creditsHtml?st.ui.creditsHtml+' · ':'')+h}
+function credit(){}
 let rq=0;const render=()=>{if(!rq)rq=requestAnimationFrame(()=>{rq=0;renderNow()})};
 function renderNow(){st.models.forEach(m=>{m.outline=mg({enabled:false,color:'#000000',thickness:1,strength:2.5,glow:0},m.outline||{})});const op=[...document.querySelectorAll('#P details')].map(d=>d.open);
 $('P').innerHTML=`<h2>Panel de administración</h2>

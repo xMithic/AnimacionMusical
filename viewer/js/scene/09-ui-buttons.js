@@ -13,7 +13,7 @@ function applyUI(){const ui=cfg.ui,P=[];
     uiEl.replaceChildren(f)}
   for(const b of uiEl.children){if(b.dataset.t!=='a')continue;const m=cfg.models.find(x=>x.id===b.dataset.id),it=items[b.dataset.id];
     b.setAttribute('aria-pressed',!!m&&m.anim===b.dataset.v);b.classList.toggle('wt',!!(it&&it.pend===b.dataset.v))}
-  const cr=ui.credits?ui.creditsHtml:'';if(cr!==crKey){crKey=cr;$('cr').innerHTML=cr}
+  if(crKey!==''){crKey='';$('cr').innerHTML=''}
 }
 uiEl.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('button');if(!b||b.dataset.t==null)return;
   if(b.dataset.t==='v'){const v=cfg.views[+b.dataset.id];if(v)goView(v)}
