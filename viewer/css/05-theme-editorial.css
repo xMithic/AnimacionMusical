@@ -14,5 +14,8 @@
 #play-btn:hover{background:#efeeeb!important;color:#111!important;transform:translate(3px,3px)!important;box-shadow:4px 4px 0 #c9c7c1!important}
 #play-btn:hover .play-icon{border-color:#111}
 #play-btn:active{transform:translate(7px,7px)!important;box-shadow:0 0 0 transparent!important}
+#play-btn.loading{pointer-events:none!important;cursor:wait!important;transform:translate(3px,3px)!important;box-shadow:4px 4px 0 #c9c7c1!important;opacity:.92!important}
+#start-loading{font:700 12px/1.2 system-ui,sans-serif!important;letter-spacing:.16em!important;color:#111!important;margin-top:24px!important}
+#start-loading .loading-spinner{border:2px solid rgba(17,17,17,.25)!important;border-top-color:#111!important}
 #play-btn:focus-visible{outline:2px solid #111!important;outline-offset:6px}
 @media(max-width:520px){#start-overlay::before{top:22px}#start-overlay::after{bottom:22px}#play-btn{min-width:220px;height:74px}}

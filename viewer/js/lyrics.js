@@ -67,10 +67,50 @@ function playCurrent(){const t=tr[cur];if(!t)return;const start=Math.max(0,+t.st
 function sel(i,play){const ch=setTrack(i);if(ch)clear();if(play)playCurrent()}
 
 function say(m){hint.textContent=m;hint.classList.add('on');clearTimeout(say.t);say.t=setTimeout(()=>hint.classList.remove('on'),7000)}
-function startApp(){
- const ov=$('start-overlay');if(ov){ov.style.opacity='0';setTimeout(()=>ov.remove(),400)}
+let starting=false;
+function waitAudio(toMs=5000){
+ if(!tr.length||(C&&C.on===false)||au.readyState>=2||au.error)return Promise.resolve();
+ return new Promise(res=>{
+  let done=false;
+  const fin=()=>{
+   if(done)return;done=true;
+   au.removeEventListener('canplay',fin);au.removeEventListener('canplaythrough',fin);au.removeEventListener('loadeddata',fin);au.removeEventListener('error',fin);
+   clearTimeout(to);res();
+  };
+  au.addEventListener('canplay',fin,{once:true});
+  au.addEventListener('canplaythrough',fin,{once:true});
+  au.addEventListener('loadeddata',fin,{once:true});
+  au.addEventListener('error',fin,{once:true});
+  const to=setTimeout(fin,toMs);
+  try{au.load()}catch(_){}
+ });
+}
+function waitScene(toMs=6000){
+ return new Promise(res=>{
+  const to=setTimeout(res,toMs);
+  const chk=()=>{
+   const ok=typeof window.isSceneReady==='function'?window.isSceneReady():false;
+   if(ok){clearTimeout(to);res()}
+   else requestAnimationFrame(chk);
+  };
+  chk();
+ });
+}
+async function startApp(){
+ if(starting)return;
+ starting=true;
+ const pb=$('play-btn'),ld=$('start-loading');
+ if(pb)pb.classList.add('loading');
+ if(ld)ld.classList.add('on');
+ if(tr.length&&(!C||C.on!==false)){
+  if(cur<0)setTrack(0);
+  if(au.readyState<2){try{au.load()}catch(_){}}
+ }
+ await Promise.all([waitAudio(),waitScene(),new Promise(r=>setTimeout(r,120))]);
+ const ov=$('start-overlay');
+ if(ov){ov.style.opacity='0';setTimeout(()=>ov.remove(),400)}
  if(!tr.length||(C&&C.on===false))return;
- if(cur<0)sel(0,true);else playCurrent()
+ if(cur<0)sel(0,true);else playCurrent();
 }
 
 function cfg(c,u,ed){

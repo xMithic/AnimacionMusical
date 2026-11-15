@@ -5,3 +5,8 @@
 #play-btn:hover{background:#efeeeb;color:#111;transform:translateY(-2px)}
 #play-btn:focus-visible{outline:3px solid #111;outline-offset:5px}
 #play-btn:active{transform:translateY(0)}
+#play-btn.loading{pointer-events:none;opacity:.88;cursor:wait}
+#start-loading{display:none;align-items:center;justify-content:center;gap:10px;margin-top:22px;font:700 12px/1.2 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#111;opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease}
+#start-loading.on{display:flex;opacity:1;transform:translateY(0)}
+#start-loading .loading-spinner{width:14px;height:14px;border:2px solid rgba(17,17,17,.25);border-top-color:#111;border-radius:50%;animation:start-spin .7s linear infinite;display:inline-block;flex:none}
+@keyframes start-spin{to{transform:rotate(360deg)}}

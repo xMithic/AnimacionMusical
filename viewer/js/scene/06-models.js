@@ -12,8 +12,8 @@ function add(m){
   const buf=m.src?null:(bufs[m.id]||b64buf(m.id));
   if(!m.src&&!buf)return;
   items[m.id]={};
-  if(m.src)ldr.load(m.src,done,e=>{if(e.total)$('ld').style.width=e.loaded/e.total*100+'%'},fail);
-  else ldr.parse(buf,'',done,fail);
+  if(m.src)ldr.load(m.src,done,e=>{if(e.total)$('ld').style.width=e.loaded/e.total*100+'%'},()=>fail(m.id));
+  else ldr.parse(buf,'',done,()=>fail(m.id));
 }
 function frame(){needFrame=false;const b=new THREE.Box3().setFromObject(root);if(b.isEmpty())return;
   const s=b.getSize(new THREE.Vector3()),ct=b.getCenter(new THREE.Vector3()),r=Math.max(s.x,s.y,s.z)/2||1,d=r/Math.sin(cam.fov*Math.PI/360)*1.15;

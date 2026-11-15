@@ -33,3 +33,18 @@ function applyScene(){
   if(edit){ctl.minDistance=0;ctl.maxDistance=Infinity}else{if(+c.minDist>0)ctl.minDistance=+c.minDist;if(+c.maxDist>0)ctl.maxDistance=+c.maxDist}
   fitShadow();
 }
+function isSceneReady(){
+  if(!cfg||!cfg.models||!cfg.models.length)return true;
+  for(const m of cfg.models){
+    const it=items[m.id];
+    if(!it)return false;
+    if(it.failed)continue;
+    if(!it.sc)return false;
+    if(m.anim&&m.anim.startsWith('x:')){
+      const id=m.anim.slice(2);
+      if(it.pend===m.anim||(it.xp&&it.xp[id]))return false;
+    }
+  }
+  return true;
+}
+window.isSceneReady=isSceneReady;
