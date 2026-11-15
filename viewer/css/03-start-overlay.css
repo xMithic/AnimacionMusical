@@ -1,0 +1,7 @@
+/* Pantalla de inicio y botón principal (versión base) */
+#start-overlay{position:fixed;inset:0;background:#efeeeb;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99;opacity:1;transition:opacity .28s ease}
+#play-btn{appearance:none;border:2px solid #111;border-radius:0;min-width:116px;height:68px;padding:0 24px;background:#111;color:#efeeeb;font:800 15px/1 system-ui,sans-serif;letter-spacing:.16em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:none;transition:background .16s,color .16s,transform .16s}
+#play-btn .play-icon{font-size:21px;line-height:1;letter-spacing:0}
+#play-btn:hover{background:#efeeeb;color:#111;transform:translateY(-2px)}
+#play-btn:focus-visible{outline:3px solid #111;outline-offset:5px}
+#play-btn:active{transform:translateY(0)}

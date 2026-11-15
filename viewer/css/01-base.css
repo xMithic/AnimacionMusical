@@ -1,0 +1,7 @@
+/* Base: lienzo, título, botones, créditos y barra de carga */
+html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,sans-serif}#c{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
+#t{position:fixed;top:14px;left:0;right:0;text-align:center;font-size:1.3rem;font-weight:600;pointer-events:none}
+#ui{position:fixed;bottom:16px;left:0;right:0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+#ui button{border:0;border-radius:99px;padding:9px 15px;background:#5b6cf0;color:#fff;cursor:pointer}
+#cr{position:fixed;bottom:3px;right:8px;font-size:.65rem;opacity:.55;color:#fff;text-shadow:0 0 3px #000}#cr a{color:inherit}
+#ld{position:fixed;left:0;top:0;height:3px;background:#5b6cf0;width:0}

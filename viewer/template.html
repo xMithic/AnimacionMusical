@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visor 3D</title>
+<style>{{inline:css}}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#efeeeb"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="icons/icon-192.png"></head><body><canvas id="c"></canvas><div id="t"></div><div id="ui"></div><div id="cr"></div><div id="ld"></div><div id="mh"></div><div id="lyr" class="idle"><div id="lcd"><img alt=""><div class="i"><b></b><span></span></div></div><div id="lyb"><div class="ly ph"><div class="tx"></div></div></div><i class="hd nw" data-h="nw"></i><i class="hd ne" data-h="ne"></i><i class="hd sw" data-h="sw"></i><i class="hd se" data-h="se"></i></div>
+<div id="start-overlay"><button id="play-btn" title="Reproducir"><span class="play-icon" aria-hidden="true">▶</span><span>ENTER THE WORLD</span></button></div>
+<script id="cfg" type="application/json">/*CFG*/</script>
+<script id="mdl" type="application/json">/*MODELS*/</script>
+<script id="anm" type="application/json">/*ANIMS*/</script>
+<script>
+{{inline:js/lyrics.js}}</script>
+<script type="module">
+{{inline:js/scene}}</script><script>if("serviceWorker" in navigator && location.protocol!=="file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(e=>console.warn("PWA service worker:",e)));}</script></body></html>

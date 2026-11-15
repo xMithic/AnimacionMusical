@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin · Visor 3D</title>
+<link rel="stylesheet" href="admin/css/admin.css">
+</head>
+<body>
+
+<!-- Pantalla de acceso -->
+<div id="L"><h2>🔒 Acceso admin</h2><input id="pw" type="password" placeholder="Contraseña" autofocus><button id="go">Entrar</button><small id="le"></small></div>
+
+<!-- Panel lateral y vista previa del visor -->
+<div id="P"></div>
+<iframe id="F" allow="autoplay"></iframe>
+
+<!-- Selectores de archivos ocultos: modelos, index.html, animaciones (.gma) y música -->
+<input id="fm" type="file" accept=".glb,.gltf,.zip,.bin,.png,.jpg,.jpeg,.webp" multiple hidden>
+<input id="fi" type="file" accept=".html" hidden>
+<input id="fg" type="file" accept=".gma" multiple hidden>
+<input id="fu" type="file" accept=".mp3,.flac,.m4a,.ogg,.wav,audio/*" multiple hidden>
+
+<!-- Lógica del panel. El orden importa: comparten el mismo ámbito global (ver README). -->
+<script src="admin/js/00-viewer-template.js"></script>
+<script src="admin/js/01-auth.js"></script>
+<script src="admin/js/02-state.js"></script>
+<script src="admin/js/03-model-import.js"></script>
+<script src="admin/js/04-audio-tags.js"></script>
+<script src="admin/js/05-lyrics-service.js"></script>
+<script src="admin/js/06-audio-helpers.js"></script>
+<script src="admin/js/07-music-tracks.js"></script>
+<script src="admin/js/08-music-panel.js"></script>
+<script src="admin/js/09-gma-reader.js"></script>
+<script src="admin/js/10-anim-library.js"></script>
+<script src="admin/js/11-panel-render.js"></script>
+<script src="admin/js/12-preview-sync.js"></script>
+<script src="admin/js/13-folder-models.js"></script>
+<script src="admin/js/14-events.js"></script>
+<script src="admin/js/15-publish.js"></script>
+<script src="admin/js/16-boot.js"></script>
+</body>
+</html>
